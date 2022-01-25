@@ -14,19 +14,16 @@ import java.util.Stack;
  */
 public class BalancedBrackets {
 
-  // OPTION 1: with String.replaceAll()
-  public static String isBalanced1(String expression) {
-
-    if (expression == null || expression.length() % 2 != 0) {
-      return "NO";
+  // OPTION 1: optimized and simplified solution with Stack
+  public boolean isValid(String s) {
+    Stack<Character> stack = new Stack<>();
+    for (char c : s.toCharArray()) {
+      if (c == '(') stack.push(')');
+      else if (c == '{') stack.push('}');
+      else if (c == '[') stack.push(']');
+      else if (stack.isEmpty() || stack.pop() != c) return false;
     }
-
-    while (expression.contains("()") || expression.contains("[]") || expression.contains("{}")) {
-      expression =
-          expression.replaceAll("\\(\\)", "").replaceAll("\\[\\]", "").replaceAll("\\{\\}", "");
-    }
-
-    return expression.isEmpty() ? "YES" : "NO";
+    return stack.isEmpty();
   }
 
   // OPTION 2: with Stack data structure
@@ -66,5 +63,20 @@ public class BalancedBrackets {
       }
     }
     return false;
+  }
+    
+  // OPTION 3: with String.replaceAll()
+  public static String isBalanced1(String expression) {
+
+    if (expression == null || expression.length() % 2 != 0) {
+      return "NO";
+    }
+
+    while (expression.contains("()") || expression.contains("[]") || expression.contains("{}")) {
+      expression =
+          expression.replaceAll("\\(\\)", "").replaceAll("\\[\\]", "").replaceAll("\\{\\}", "");
+    }
+
+    return expression.isEmpty() ? "YES" : "NO";
   }
 }
