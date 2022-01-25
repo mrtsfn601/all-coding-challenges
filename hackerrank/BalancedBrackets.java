@@ -15,15 +15,15 @@ import java.util.Stack;
 public class BalancedBrackets {
 
   // OPTION 1: optimized and simplified solution with Stack
-  public boolean isValid(String s) {
+  public String isValid(String s) {
     Stack<Character> stack = new Stack<>();
     for (char c : s.toCharArray()) {
       if (c == '(') stack.push(')');
       else if (c == '{') stack.push('}');
       else if (c == '[') stack.push(']');
-      else if (stack.isEmpty() || stack.pop() != c) return false;
+      else if (stack.isEmpty() || stack.pop() != c) return "NO";
     }
-    return stack.isEmpty();
+    return stack.isEmpty() ? "YES" : "NO";;
   }
 
   // OPTION 2: with Stack data structure
