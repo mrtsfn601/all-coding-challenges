@@ -28,6 +28,8 @@ Follow up: What if the inputs contain Unicode characters? How would you adapt yo
 */
 
 class ValidAnagram {
+
+    // faster solution
     public boolean isAnagram(String s, String t) {
         if (s.length() != t.length()) {
             return false;
@@ -35,28 +37,55 @@ class ValidAnagram {
         if (s.equals(t)) {
             return true;
         }
-        Map<Character, Integer> sCount = count(s);
-        Map<Character, Integer> tCount = count(t);
-        if (sCount.size() != tCount.size()) {
-            return false;
-        }
-        for (Character c : sCount.keySet()) {
-            if (!tCount.containsKey(c) || !sCount.get(c).equals(tCount.get(c))) {
+        int[] sCount = count(s);
+        int[] tCount = count(t);
+        for (int i = 0; i < sCount.length; i++) {
+            if (sCount[i] != tCount[i]) {
                 return false;
             }
         }
         return true;
     }
     
-    private static Map<Character, Integer> count(String s) {
-        Map<Character, Integer> count = new HashMap<>(); 
+    private static int[] count(String s) {
+        int[] count = new int[26]; 
         for (char c : s.toCharArray()) {
-            if (!count.containsKey(c)) {
-                count.put(c, 1);
-            } else {
-                count.put(c, count.get(c) + 1);
-            }
+            int i = c - 'a';
+            count[i] += 1;
         }
         return count;
     }
+    
+    // slower solution
+//     public boolean isAnagram(String s, String t) {
+//         if (s.length() != t.length()) {
+//             return false;
+//         }
+//         if (s.equals(t)) {
+//             return true;
+//         }
+//         Map<Character, Integer> sCount = count(s);
+//         Map<Character, Integer> tCount = count(t);
+//         if (sCount.size() != tCount.size()) {
+//             return false;
+//         }
+//         for (Character c : sCount.keySet()) {
+//             if (!tCount.containsKey(c) || !sCount.get(c).equals(tCount.get(c))) {
+//                 return false;
+//             }
+//         }
+//         return true;
+//     }
+    
+//     private static Map<Character, Integer> count(String s) {
+//         Map<Character, Integer> count = new HashMap<>(); 
+//         for (char c : s.toCharArray()) {
+//             if (!count.containsKey(c)) {
+//                 count.put(c, 1);
+//             } else {
+//                 count.put(c, count.get(c) + 1);
+//             }
+//         }
+//         return count;
+//     }
 }
