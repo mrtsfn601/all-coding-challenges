@@ -29,7 +29,7 @@ Follow up: What if the inputs contain Unicode characters? How would you adapt yo
 
 class ValidAnagram {
 
-    // faster solution
+    // solution with array
     public boolean isAnagram(String s, String t) {
         if (s.length() != t.length()) {
             return false;
@@ -37,24 +37,45 @@ class ValidAnagram {
         if (s.equals(t)) {
             return true;
         }
-        int[] sCount = count(s);
-        int[] tCount = count(t);
-        for (int i = 0; i < sCount.length; i++) {
-            if (sCount[i] != tCount[i]) {
+        int[] counts = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            counts[s.charAt(i) - 'a']++;
+            counts[t.charAt(i) - 'a']--;
+        }
+        for (int count : counts) {
+            if (count != 0) {
                 return false;
             }
         }
         return true;
     }
     
-    private static int[] count(String s) {
-        int[] count = new int[26]; 
-        for (char c : s.toCharArray()) {
-            int i = c - 'a';
-            count[i] += 1;
-        }
-        return count;
-    }
+    // similar solution
+//     public boolean isAnagram(String s, String t) {
+//         if (s.length() != t.length()) {
+//             return false;
+//         }
+//         if (s.equals(t)) {
+//             return true;
+//         }
+//         int[] sCount = count(s);
+//         int[] tCount = count(t);
+//         for (int i = 0; i < sCount.length; i++) {
+//             if (sCount[i] != tCount[i]) {
+//                 return false;
+//             }
+//         }
+//         return true;
+//     }
+    
+//     private static int[] count(String s) {
+//         int[] count = new int[26]; 
+//         for (char c : s.toCharArray()) {
+//             int i = c - 'a';
+//             count[i] += 1;
+//         }
+//         return count;
+//     }
     
     // slower solution
 //     public boolean isAnagram(String s, String t) {
