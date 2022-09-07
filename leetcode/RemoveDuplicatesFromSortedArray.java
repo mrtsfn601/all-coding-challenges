@@ -46,7 +46,7 @@ Constraints:
 nums is sorted in non-decreasing order.
 */
 
-class Solution {
+class RemoveDuplicatesFromSortedArray {
     
     public int removeDuplicates(int[] a) {
         
