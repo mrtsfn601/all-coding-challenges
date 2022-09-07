@@ -68,7 +68,7 @@ Constraints:
 s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'.
 */
 
-class Solution {
+class StringToIntegerAtoi {
     
     public int myAtoi(String s) {
 
