@@ -24,7 +24,7 @@ Constraints:
 Follow up: Could you minimize the total number of operations done?
 */
 
-class Solution {
+class MoveZeroes {
     
     // brute force
     // public void moveZeroes(int[] nums) {
