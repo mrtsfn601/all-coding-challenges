@@ -51,9 +51,11 @@ class MoveZeroes {
     public void moveZeroes(int[] nums) {
         for (int i = 0, j = 0; j < nums.length; j++) {
             if (nums[j] != 0) {
-                int buff = nums[i];
-                nums[i] = nums[j];
-                nums[j] = buff;
+                if (i != j) {
+                    int buff = nums[i];
+                    nums[i] = nums[j];
+                    nums[j] = buff;
+                }
                 i++;
             }
         }
