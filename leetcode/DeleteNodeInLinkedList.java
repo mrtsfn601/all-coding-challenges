@@ -48,16 +48,9 @@ The node to be deleted is in the list and is not a tail node.
  *     ListNode(int x) { val = x; }
  * }
  */
-class NodeInLinkedList {
-  // this is copy paste from solutions, cause the solution doesn't make sense to me
+class DeleteNodeInLinkedList {
     public void deleteNode(ListNode node) {
-        // Since we know input node is not last node, so nextNode will not be null
-        ListNode nextNode = node.next;
-        // Step 2
-        node.val = nextNode.val;
-        // Step 3
+        node.val = node.next.val;
         node.next = node.next.next;
-        // nextNode.next = null;
     }
-
 }
