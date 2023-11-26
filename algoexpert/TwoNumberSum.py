@@ -5,3 +5,10 @@ def twoNumberSum(array, targetSum):
                 return [array[i], array[j]]
     return []
 
+def twoNumberSum(array, targetSum):
+    visited = set()
+    for num in array:
+        if (targetSum - num) in visited:
+            return [targetSum - num, num]
+        visited.add(num)
+    return []
