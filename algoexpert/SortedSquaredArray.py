@@ -16,6 +16,10 @@ def sortedSquaredArray(array):
     squared.sort()
     return squared
 
+# O(n log(n)) time | O(n) space
+def sortedSquaredArray(array):
+    return sorted([num**2 for num in array])
+
 # O(n) time | O(n) space
 def sortedSquaredArray(array):
     size = len(array)
