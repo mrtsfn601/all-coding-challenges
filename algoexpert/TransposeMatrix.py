@@ -1,4 +1,4 @@
-# O(w*h) time | O(w*h) space
+# O(log w*h) time | O(log w*h) space
 # where w is width and h is height
 def transposeMatrix(matrix):
     H = len(matrix)
@@ -19,3 +19,8 @@ def transposeMatrix(matrix):
             newRow.append(matrix[row][col])
         transposed.append(newRow)
     return transposed
+
+# O(w*h) time | O(w*h) space
+# where w is width and h is height
+def transposeMatrix(matrix):
+    return [[matrix[row][col] for row in range(len(matrix))] for col in range(len(matrix[0]))]
