@@ -14,21 +14,21 @@ def findClosestValueInBstRecursive(tree, target, closest):
 
 
 # Average: O(log(n)) time | O(log(n)) space
-# Average: O(n) time | O(n) space
+# Worst: O(n) time | O(n) space
 def findClosestValueInBst(tree, target):
     return findClosestValueInBstRecursive(tree, target, closest = tree.value)
 
 def findClosestValueInBstRecursive(tree, target, closest):
-    if tree is None:
-        return closest
-    
+    if tree is None: return closest
+    if tree.value == target: return tree.value
+
     if abs(tree.value - target) < abs(closest - target):
         closest = tree.value
     
-    if target < tree.value:
+    if tree.value > target:
         return findClosestValueInBstRecursive(tree.left, target, closest)
     
-    if target > tree.value:
+    if tree.value < target:
         return findClosestValueInBstRecursive(tree.right, target, closest)    
     
     return closest
