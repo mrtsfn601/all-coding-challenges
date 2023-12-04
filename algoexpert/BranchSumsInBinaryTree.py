@@ -32,12 +32,12 @@ def branchSums(root):
     calculateBranchSums(root, 0, sums)
     return sums
 
-def calculateBranchSums(node, current_sum, sums):
+def calculateBranchSums(node, sum, sums):
     if node is None:
         return    
-    current_sum += node.value
+    sum += node.value
     if node.left is None and node.right is None:
-        sums.append(current_sum)
+        sums.append(sum)
         return
-    calculateBranchSums(node.left, current_sum, sums)
-    calculateBranchSums(node.right, current_sum, sums)
+    calculateBranchSums(node.left, sum, sums)
+    calculateBranchSums(node.right, sum, sums)
