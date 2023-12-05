@@ -10,10 +10,10 @@ def nodeDepths(root, depths = 0, sum = 0):
 
 # O(n) time | O(n) space
 # where n is the number of nodes in binary tree
-def nodeDepths(root, depth = 0):
+def nodeDepths(root, depths = 0):
     if root is None:
         return 0
-    return depth + nodeDepths(root.left, depth + 1) + nodeDepths(root.right, depth + 1)
+    return depths + nodeDepths(root.left, depths + 1) + nodeDepths(root.right, depths + 1)
 
 
 # This is the class of the input binary tree.
