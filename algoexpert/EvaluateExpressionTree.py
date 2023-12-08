@@ -22,3 +22,22 @@ def evaluateExpressionTree(tree):
     if sign == -4: return leftVal * rightVal
     
     return -1
+
+
+# O(n) time | O(h) space
+# where n is the number of nodes in a Binary Tree
+# where h is the height of a Binary Tree        
+def evaluateExpressionTree(tree):
+    if tree.value >= 0: return tree.value
+    
+    leftVal = evaluateExpressionTree(tree.left)
+    rightVal = evaluateExpressionTree(tree.right)
+
+    operators = {
+        -1: lambda x, y: x + y,
+        -2: lambda x, y: x - y,
+        -3: lambda x, y: int(x / y),
+        -4: lambda x, y: x * y
+    }
+    
+    return operators[tree.value](leftVal, rightVal)
