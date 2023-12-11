@@ -12,6 +12,7 @@ class Node:
         return self
 
     # O(v + e) time | O(v) space
+    # where v is the number of vertices or nodes and e is the number of edges
     def depthFirstSearch(self, array):
         array.append(self.name)
         for child in self.children:
