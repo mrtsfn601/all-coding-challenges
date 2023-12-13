@@ -40,23 +40,23 @@ class Result {
         // find all distinct characters
         Set<Character> uniqueChars = new HashSet<>();
         for (Character c : givenString.toCharArray()) {
-            uniqueChars.add(c); // d,a,b,c
+            uniqueChars.add(c);
         }
 
         // find best candidates and compare them to one another
         Queue<Character> bestCandidate = new LinkedList<>();
         for (int i = 0, j = 0; i < givenString.length(); i++) {
             Character c = givenString.charAt(i);
-            bestCandidate.add(c); // d
+            bestCandidate.add(c);
             
-            // if a new best candidate is found
+            // if a new best candidate is found, process it then
             if (bestCandidate.containsAll(uniqueChars)) {
-                i = ++j; //alternative to a nested loop
                 // if a best candidate has a shorter length
                 if (bestCandidate.size() < shortestSubstringLength) {
                     shortestSubstringLength = bestCandidate.size();
                 }
                 bestCandidate.clear();
+                i = ++j; //alternative to a nested loop
             }
 
             // if best candidates has duplicated char at the beginning, remove it then
