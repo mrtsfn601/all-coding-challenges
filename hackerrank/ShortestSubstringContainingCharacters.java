@@ -43,7 +43,7 @@ class Result {
             uniqueChars.add(c);
         }
 
-        // find best candidates and compare them to one another
+        // find a best candidate and compare them to one another
         Queue<Character> bestCandidate = new LinkedList<>();
         for (int i = 0, j = 0; i < givenString.length(); i++) {
             Character c = givenString.charAt(i);
@@ -51,15 +51,15 @@ class Result {
             
             // if a new best candidate is found, process it then
             if (bestCandidate.containsAll(uniqueChars)) {
-                // if a best candidate has a shorter length
+                // if the best candidate has a shorter length than the previous one
                 if (bestCandidate.size() < shortestSubstringLength) {
                     shortestSubstringLength = bestCandidate.size();
                 }
                 bestCandidate.clear();
-                i = ++j; //alternative to a nested loop
+                i = ++j; // alternative to a nested loop
             }
 
-            // if best candidates has duplicated char at the beginning, remove it then
+            // if a best candidate has duplicated char at the beginning, remove it then
             if (bestCandidate.size() > 1
                 && bestCandidate.element().equals(c)) {
                 bestCandidate.remove();
