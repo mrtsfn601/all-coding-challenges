@@ -2,6 +2,12 @@
 
 My solutions to coding challenges from various online resources, implemented in Java or Python.
 
+#### Goal
+
+Interview preparation, master algorithms and data structures.
+
+#### Resources
+
 * [algoexpert.io](https://www.algoexpert.io/)
 * [careercup.com](https://www.careercup.com/)
 * [codeforces.com](https://codeforces.com/)
@@ -13,7 +19,4 @@ My solutions to coding challenges from various online resources, implemented in 
 * [projecteuler.net](https://projecteuler.net/)
 * [spoj.com](https://www.spoj.com/)
 * and many other resources
-
-#### Goal
-
-Interview preparation, master algorithms and data structures.
+  
