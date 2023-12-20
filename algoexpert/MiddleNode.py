@@ -18,16 +18,16 @@ def middleNode(linkedList):
 
 # O(n) time | O(log(n)) space - where n is the number of nodes in the linked list
 def middleNode(linkedList):
-    stack = []
+    queue = []
     node = linkedList
     i = 0
     while node is not None:
-        stack.append(node)
+        queue.append(node)
         i += 1
         node = node.next
         if i % 2 == 0:
-            del stack[0]
-    return stack[0]
+            del queue[0]
+    return queue[0]
 
 
 # O(n) time | O(1) space - where n is the number of nodes in the linked list
