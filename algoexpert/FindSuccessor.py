@@ -7,6 +7,7 @@ class BinaryTree:
         self.parent = parent
 
 
+# O(n) time | O(n) space
 def findSuccessor(tree, node):
     nodes = inOrderTraverSal(tree, [])
     return findSuccessorHelper(nodes, node)
@@ -26,3 +27,19 @@ def findSuccessorHelper(nodes, node):
         if i == len(nodes) - 1:
             return None
         return nodes[i + 1]
+
+
+# O(h) time | O(1) space
+def findSuccessor(tree, node):
+    # get leftmost child
+    if node.right is not None:
+        successor = node.right
+        while successor.left is not None:
+            successor = successor.left
+        return successor
+    # get rightmost child
+    if node.parent is None:
+        return None
+    if node == node.parent.left:
+        return node.parent
+    return node.parent.parent
