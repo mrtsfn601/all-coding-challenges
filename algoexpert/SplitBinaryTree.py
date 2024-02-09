@@ -5,6 +5,8 @@ class BinaryTree:
         self.left = left
         self.right = right
 
+
+# O(n) time | O(h) space
 def splitBinaryTree(tree):
     targetSum = getBinaryTreeSum(tree) / 2
     canBeSplit = trySubtrees(tree, targetSum)[1]
@@ -23,3 +25,18 @@ def getBinaryTreeSum(tree):
     if tree is None:
         return 0
     return tree.value + getBinaryTreeSum(tree.left) + getBinaryTreeSum(tree.right)
+
+
+# O(n) time | O(n) space
+def splitBinaryTree(tree):
+    sums = set()
+    sum = get_sum(tree, sums)
+    target_sum = sum / 2
+    return target_sum if target_sum in sums else 0
+
+def get_sum(tree, sums):
+    if tree is None:
+        return 0
+    curr_sum = tree.value + get_sum(tree.left, sums) + get_sum(tree.right, sums)
+    sums.add(curr_sum)
+    return curr_sum
